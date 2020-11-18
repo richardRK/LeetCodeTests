@@ -14,7 +14,7 @@ namespace ConsoleApp1
             helper(s, left, right);
         }
 
-        public void reverseString(char[] s)
+        public void ReverseString(char[] s)
         {
             helper(s, 0, s.Length - 1);
         }
