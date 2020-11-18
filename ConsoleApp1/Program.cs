@@ -3,26 +3,23 @@ using System.Linq;
 
 namespace ConsoleApp1
 {
-    class Program
+    class Solution
     {
-        static void Main(string[] args)
+        public void helper(char[] s, int left, int right)
         {
-            char[] input = Console.ReadLine().Split(' ').Select(char.Parse).ToArray();
-
-            var result = input.Reverse();
-
-
-            string ext = String.Format("[{0}]", string.Join(",", result.Select(n => "\"" + n + "\"")));
-
-
-            Console.WriteLine(ext);
-
-          
-
-            Console.ReadLine();
+            if (left >= right) return;
+            char tmp = s[left];
+            s[left++] = s[right];
+            s[right--] = tmp;
+            helper(s, left, right);
         }
-    }
 
+        public void reverseString(char[] s)
+        {
+            helper(s, 0, s.Length - 1);
+        }
+
+    }
 
 
 }
